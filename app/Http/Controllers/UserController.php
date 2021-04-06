@@ -10,6 +10,18 @@ use App\Customer;
 
 class UserController extends Controller
 {
+
+public function _construct(){
+    $this->middleware('auth:user');
+}
+public function index(){
+    $users=User::count();
+    $phones=Phones::count();
+    $customer=Customer::count();
+    return view('user.home',['users'=>$users,'phones'=>$phones,'customer'=>$customer]);
+}
+
+
 public  function viewphones(){
      $phones=Phones::orderBy('created_at','asc')->paginate(100);
      return view('user.viewphones',['phones'=>$phones]);

@@ -19,6 +19,11 @@
             <input type="text" class="common-input mt-0" id="phone" name="phone">
         </div>
         <div class="form-group">
+        <lable for="pwd">Password:
+        </lable>
+        <input type="password" class="common-input mt-0" id="password" name="password">
+        </div>
+        <div class="form-group">
             <label for="sel1">Gender:</label>
             <select class="common-input mt-0" id="sel1" name="gender">
                 <option>Select...</option>

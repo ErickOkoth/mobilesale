@@ -64,6 +64,9 @@ Route::group([
 Route::group([
     'prefix'=>'user'
 ], function () {
+    Route::post('stafflogin', 'PagesController@staffvalidatelogin')->name('user.login');
+    Route::post('/logout', 'PagesController@stafflogout')->name('user.logout');
+    Route::get('/home', 'UserController@index')->name('user.home');
     Route::get('phones', 'UserController@viewphones')->name('user.viewphones');
     Route::get('password', 'UserController@resetpassword')->name('user.resetpassword');
     Route::post('password', 'UserController@updatepassword')->name('user.updatepassword');

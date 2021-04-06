@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <a href="#"><img src="extra/img/phone1.jpg" alt="" ></a>
+                    <a href="#"><img src="extra/img/phone2.jpg" alt="" ></a>
                 </div>
             </div>
         </div>

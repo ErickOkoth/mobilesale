@@ -7,7 +7,7 @@
                     <div class="banner-content">
                                    <h4>Staff Login</h4>
                         <hr>
-                                            <form method="POST" action="{{ route('login') }}">
+                                            <form method="POST" action="{{ route('user.login') }}">
                                                 @csrf
 
                                                 <div class="form-group row">

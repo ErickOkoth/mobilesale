@@ -8,10 +8,14 @@ class PagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest');//->except('logout');
+       // $this->middleware('guest:admin')->except('logout');
+       // $this->middleware('guest:user')->except('logout');
     }
 
     public function adminlogin(){
+
+        
         return view('auth.adminLogin');
     }
     public function stafflogin(){
@@ -32,7 +36,25 @@ class PagesController extends Controller
         }
         return redirect()->route('admin.home');
     }
+
+    public function staffvalidatelogin(Request $request){
+        $this->validate($request,[
+            'email'=>'required',
+            'password'=>'required',
+        ]);
+
+        $credential=\request(['email','password']);
+        if(!auth()->guard('user')->attempt($credential)){
+            return redirect()->back()->with('error','Invalid email or password');
+        }
+        return redirect()->route('user.home');
+    }
     public  function adminlogout(){
+        session()->flush();
+        return view('welcome');
+    }
+
+    public function stafflogout(){
         session()->flush();
         return view('welcome');
     }
